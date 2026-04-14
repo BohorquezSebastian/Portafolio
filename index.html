@@ -8,26 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f2ede6;--surface:#ece7df;--border:#d9d3ca;
-  --text:#1a1714;--muted:#9a9088;--accent:#c0392b;--accent-light:#f5e8e7;
-}
+:root{--bg:#f2ede6;--surface:#ece7df;--border:#d9d3ca;--text:#1a1714;--muted:#9a9088;--accent:#c0392b;--accent-light:#f5e8e7;}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none}
-
-/* CURSOR */
 .cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
 .cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4;transition:width .2s,height .2s,opacity .2s}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(242,237,230,0.88);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
 nav.scrolled{border-bottom-color:var(--border)}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:.05em}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
-
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 64px;position:relative;border-bottom:1px solid var(--border)}
 .hero-ghost{position:absolute;top:50%;left:48px;transform:translateY(-54%);font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(90px,16vw,220px);color:transparent;-webkit-text-stroke:1px #e0dbd3;line-height:.9;pointer-events:none;user-select:none}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:6px 14px;border-radius:2px;font-weight:500;margin-bottom:28px}
@@ -37,11 +28,7 @@ nav.scrolled{border-bottom-color:var(--border)}
 .hero-bio{max-width:400px;font-size:14px;color:var(--muted);line-height:1.85}
 .hero-arrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
 .hero-arrow::before{content:'';display:block;width:40px;height:1px;background:var(--accent)}
-
-/* WRAP */
 .wrap{max-width:1080px;margin:0 auto;padding:0 48px}
-
-/* SECTION */
 .sec{padding:80px 0;border-bottom:1px solid var(--border)}
 .sec:last-child{border-bottom:none}
 .sec-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:56px}
@@ -53,43 +40,16 @@ nav.scrolled{border-bottom-color:var(--border)}
 .sk-row:last-child{border-bottom:1px solid var(--border)}
 .sk-cat{padding:22px 0;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);padding-right:28px;font-family:'DM Mono',monospace}
 .sk-tags{padding:18px 0 18px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-
-/* SKILL TAG WITH TOOLTIP */
-.sk-t{
-  font-size:13px;padding:5px 14px;border:1px solid var(--border);border-radius:2px;
-  color:var(--text);background:transparent;transition:all .2s;
-  font-family:'DM Sans',sans-serif;position:relative;cursor:default;
-}
+.sk-t{font-size:13px;padding:5px 14px;border:1px solid var(--border);border-radius:2px;color:var(--text);background:transparent;transition:all .2s;font-family:'DM Sans',sans-serif;position:relative;cursor:default}
 .sk-t:hover{border-color:var(--accent);color:var(--accent)}
 .sk-t.h{border-color:var(--accent);color:#fff;background:var(--accent);font-weight:500}
-.sk-t.h:hover{background:var(--accent);color:#fff;opacity:.9}
-
-.sk-tooltip{
-  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
-  background:var(--text);color:var(--bg);
-  padding:10px 14px;border-radius:4px;
-  width:200px;font-size:12px;line-height:1.6;
-  font-family:'DM Sans',sans-serif;font-weight:400;
-  opacity:0;pointer-events:none;
-  transition:opacity .2s,transform .2s;
-  transform:translateX(-50%) translateY(4px);
-  z-index:200;white-space:normal;text-align:left;
-}
-.sk-tooltip::after{
-  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:5px solid transparent;border-top-color:var(--text);
-}
-.sk-tooltip .tt-level{
-  display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  padding:2px 7px;border-radius:2px;margin-bottom:5px;font-weight:500;
-}
+.sk-t.h:hover{opacity:.88}
+.sk-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--text);color:var(--bg);padding:10px 14px;border-radius:4px;width:210px;font-size:12px;line-height:1.6;font-family:'DM Sans',sans-serif;font-weight:400;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200;white-space:normal;text-align:left}
+.sk-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--text)}
+.tt-level{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-bottom:5px;font-weight:500}
 .tt-level.avanzado{background:var(--accent);color:#fff}
-.tt-level.intermedio{background:#e8a020;color:#fff}
-.tt-level.basico{background:#6b8e6b;color:#fff}
-
-.sk-t:hover .sk-tooltip{
-  opacity:1;transform:translateX(-50%) translateY(0);
-}
+.tt-level.intermedio{background:#888;color:#fff}
+.sk-t:hover .sk-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* EXPERIENCE */
 .exp-item{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:44px 0;border-top:1px solid var(--border);position:relative}
@@ -109,65 +69,50 @@ nav.scrolled{border-bottom-color:var(--border)}
 
 /* PROJECTS */
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-.pc{background:var(--bg);padding:40px;position:relative;overflow:hidden;transition:background .3s}
+.pc{background:var(--bg);padding:40px;position:relative;overflow:hidden;transition:background .3s;display:flex;flex-direction:column}
 .pc:hover{background:var(--surface)}
 .pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
 .pc:hover::after{transform:scaleX(1)}
 .pn{font-family:'Syne',sans-serif;font-weight:800;font-size:52px;color:var(--border);line-height:1;margin-bottom:22px}
 .pt{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--text);margin-bottom:10px}
-.pd{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:18px}
-.ps{display:flex;flex-wrap:wrap;gap:6px}
+.pd{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:18px;flex:1}
+.ps{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
 .ps span{font-size:11px;color:var(--accent);letter-spacing:.04em;font-family:'DM Mono',monospace}
 .ps span:not(:last-child)::after{content:' ·';color:var(--border);margin-left:4px}
+.pc-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text);text-decoration:none;letter-spacing:.04em;border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .2s,border-color .2s;align-self:flex-start}
+.pc-link:hover{color:var(--accent);border-color:var(--accent)}
+.pc-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.pc-link:hover svg{transform:translate(2px,-2px)}
+
+/* Ver más proyectos */
+.proj-more{margin-top:1px;background:var(--bg);border:1px solid var(--border);border-top:none;padding:24px 40px;display:flex;align-items:center;justify-content:space-between}
+.proj-more-txt{font-size:13px;color:var(--muted)}
+.proj-more-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.proj-more-link:hover{color:var(--accent)}
+.proj-more-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* CONTACT */
 .ct-big{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,5.5rem);letter-spacing:-.04em;line-height:.95;margin-bottom:40px;color:var(--text)}
 .ct-big em{font-style:normal;-webkit-text-stroke:1px var(--muted);color:transparent}
-
-.ct-download{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:13px;font-weight:500;letter-spacing:.04em;
-  color:#fff;background:var(--accent);
-  padding:12px 24px;border-radius:3px;
-  text-decoration:none;margin-bottom:48px;
-  transition:opacity .2s;border:none;cursor:pointer;
-  font-family:'DM Sans',sans-serif;
-}
+.ct-download{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.04em;color:#fff;background:var(--accent);padding:12px 24px;border-radius:3px;text-decoration:none;margin-bottom:48px;transition:opacity .2s;font-family:'DM Sans',sans-serif}
 .ct-download:hover{opacity:.85}
 .ct-download svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-
 .ct-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
 .ci{background:var(--bg);padding:28px 22px;transition:background .2s}
 .ci:hover{background:var(--surface)}
 .ci-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-family:'DM Mono',monospace}
 .ci-v{font-size:13px;color:var(--text);text-decoration:none;display:block;line-height:1.5}
 a.ci-v:hover{color:var(--accent)}
-
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify-content:space-between;align-items:center}
 .ft{font-size:11px;color:var(--muted);letter-spacing:.05em;font-family:'DM Mono',monospace}
-
-/* REVEAL */
 .rev{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rev.on{opacity:1;transform:translateY(0)}
-
-/* MOBILE */
 @media(max-width:700px){
-  nav{padding:20px 20px}
-  .nav-links{gap:18px}
-  .hero{padding:0 20px 48px}
-  .hero-ghost{font-size:72px}
-  .wrap{padding:0 20px}
-  .sk-row{grid-template-columns:1fr}
-  .sk-cat{border-right:none;border-bottom:1px solid var(--border);padding-bottom:10px}
-  .sk-tags{padding:12px 0}
-  .exp-item{grid-template-columns:1fr;gap:16px}
-  .pg{grid-template-columns:1fr}
-  .ct-grid{grid-template-columns:1fr 1fr}
+  nav{padding:20px 20px}.nav-links{gap:18px}.hero{padding:0 20px 48px}.hero-ghost{font-size:72px}.wrap{padding:0 20px}
+  .sk-row{grid-template-columns:1fr}.sk-cat{border-right:none;border-bottom:1px solid var(--border);padding-bottom:10px}.sk-tags{padding:12px 0}
+  .exp-item{grid-template-columns:1fr;gap:16px}.pg{grid-template-columns:1fr}.ct-grid{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:8px;padding:24px 20px;text-align:center}
-  .sk-tooltip{left:0;transform:translateX(0) translateY(4px)}
-  .sk-tooltip::after{left:20px}
-  .sk-t:hover .sk-tooltip{transform:translateX(0) translateY(0)}
+  .sk-tooltip{left:0;transform:translateX(0) translateY(4px)}.sk-tooltip::after{left:20px}.sk-t:hover .sk-tooltip{transform:translateX(0) translateY(0)}
 }
 </style>
 </head>
@@ -190,10 +135,7 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
   <div class="hero-ghost" aria-hidden="true">DEV</div>
   <div style="position:relative;z-index:2">
     <div class="hero-tag">Disponible para nuevas oportunidades</div>
-    <h1>
-      Juan<br>Bohorquez
-      <span class="sub">Ingeniero de Sistemas · Automatización &amp; Datos · Bogotá</span>
-    </h1>
+    <h1>Juan<br>Bohorquez<span class="sub">Ingeniero de Sistemas · Automatización &amp; Datos · Bogotá</span></h1>
     <div class="hero-bottom">
       <p class="hero-bio">Construyo soluciones que automatizan lo repetitivo y le dan valor real a los datos. Experiencia en sector público y desarrollo web freelance.</p>
       <p class="hero-arrow">scroll para ver más</p>
@@ -210,102 +152,54 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
     <div class="sk-row">
       <div class="sk-cat">Lenguajes</div>
       <div class="sk-tags">
-        <span class="sk-t h">Python
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Automatización de procesos, análisis de datos, scripts OCR y generación de reportes en la Secretaría de Hacienda.</span>
-        </span>
-        <span class="sk-t h">PHP
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Desarrollo de sitios y plugins personalizados en WordPress para clientes freelance.</span>
-        </span>
-        <span class="sk-t">Java
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones backend con Spring Boot en proyectos académicos del SENA.</span>
-        </span>
-        <span class="sk-t">C#
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones de escritorio y proyectos con .NET en formación técnica.</span>
-        </span>
-        <span class="sk-t">JavaScript
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Lógica del lado del cliente, jQuery e integración con WordPress y APIs externas.</span>
-        </span>
-        <span class="sk-t">.NET
-          <span class="sk-tooltip"><span class="tt-level basico">Básico</span><br>Proyectos de formación usando el ecosistema .NET para aplicaciones de escritorio.</span>
-        </span>
+        <span class="sk-t h">Python<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Automatización de procesos, análisis de datos, scripts OCR y generación de reportes en la Secretaría de Hacienda.</span></span>
+        <span class="sk-t h">PHP<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Desarrollo de sitios y plugins personalizados en WordPress para clientes freelance.</span></span>
+        <span class="sk-t">Java<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones backend con Spring Boot en proyectos académicos.</span></span>
+        <span class="sk-t">C#<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones de escritorio y proyectos con .NET en formación técnica.</span></span>
+        <span class="sk-t">JavaScript<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Lógica del lado del cliente, jQuery e integración con WordPress y APIs externas.</span></span>
+        <span class="sk-t">.NET<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Proyectos de formación usando el ecosistema .NET para aplicaciones de escritorio.</span></span>
       </div>
     </div>
 
     <div class="sk-row">
       <div class="sk-cat">Bases de datos</div>
       <div class="sk-tags">
-        <span class="sk-t h">MySQL
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Diseño, optimización y gestión de bases de datos en proyectos freelance con WordPress y PHP.</span>
-        </span>
-        <span class="sk-t">PostgreSQL
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Uso en proyectos académicos y personales con Django y aplicaciones backend.</span>
-        </span>
-        <span class="sk-t">MongoDB
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Modelado de datos no relacionales en proyectos de formación.</span>
-        </span>
-        <span class="sk-t">SQLite
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Base de datos embebida usada en scripts Python y automatizaciones locales.</span>
-        </span>
-        <span class="sk-t">Oracle DB
-          <span class="sk-tooltip"><span class="tt-level basico">Básico</span><br>Consultas y estructuras básicas en formación académica con SENA.</span>
-        </span>
+        <span class="sk-t h">MySQL<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Diseño, optimización y gestión de bases de datos en proyectos freelance con WordPress y PHP.</span></span>
+        <span class="sk-t">PostgreSQL<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Uso en proyectos académicos y personales con Django y aplicaciones backend.</span></span>
+        <span class="sk-t">MongoDB<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Modelado de datos no relacionales en proyectos de formación.</span></span>
+        <span class="sk-t">SQLite<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Base de datos embebida usada en scripts Python y automatizaciones locales.</span></span>
+        <span class="sk-t">Oracle DB<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Consultas y estructuras básicas en formación académica con SENA.</span></span>
       </div>
     </div>
 
     <div class="sk-row">
       <div class="sk-cat">Automatización</div>
       <div class="sk-tags">
-        <span class="sk-t h">OCR · Tesseract
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Extracción automática de texto desde PDFs escaneados para la Secretaría de Hacienda, reduciendo tiempos operativos en un 80%.</span>
-        </span>
-        <span class="sk-t h">PyMuPDF
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Procesamiento y clasificación masiva de documentos PDF institucionales con Python.</span>
-        </span>
-        <span class="sk-t">Pandas
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Limpieza, consolidación y análisis de datos para reportes de indicadores de gestión.</span>
-        </span>
-        <span class="sk-t">Django
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones web backend con Python en proyectos personales.</span>
-        </span>
-        <span class="sk-t">Laravel
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Framework PHP para desarrollo de aplicaciones web estructuradas.</span>
-        </span>
+        <span class="sk-t h">OCR · Tesseract<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Extracción automática de texto desde PDFs escaneados para la Secretaría de Hacienda, reduciendo tiempos en un 80%.</span></span>
+        <span class="sk-t h">PyMuPDF<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Procesamiento y clasificación masiva de documentos PDF institucionales con Python.</span></span>
+        <span class="sk-t h">Pandas<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Limpieza, consolidación y análisis de datos para reportes de indicadores de gestión.</span></span>
+        <span class="sk-t h">Laravel<span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Framework PHP para desarrollo de aplicaciones web estructuradas y APIs.</span></span>
+        <span class="sk-t">Django<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Desarrollo de aplicaciones web backend con Python en proyectos personales.</span></span>
       </div>
     </div>
 
     <div class="sk-row">
       <div class="sk-cat">Herramientas</div>
       <div class="sk-tags">
-        <span class="sk-t">SAP CRM
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Gestión y trazabilidad de información del área de Talento Humano en la Secretaría de Hacienda.</span>
-        </span>
-        <span class="sk-t">SharePoint
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Administración de formularios digitales, flujos de información y documentos institucionales.</span>
-        </span>
-        <span class="sk-t">WordPress
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Creación de sitios, temas y plugins personalizados para clientes en trabajo freelance.</span>
-        </span>
-        <span class="sk-t">Excel avanzado
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Tablas dinámicas, fórmulas complejas y reportes de indicadores para toma de decisiones.</span>
-        </span>
+        <span class="sk-t">SAP CRM<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Gestión y trazabilidad de información del área de Talento Humano en la Secretaría de Hacienda.</span></span>
+        <span class="sk-t">SharePoint<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Administración de formularios digitales, flujos de información y documentos institucionales.</span></span>
+        <span class="sk-t">WordPress<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Creación de sitios, temas y plugins personalizados para clientes en trabajo freelance.</span></span>
+        <span class="sk-t">Excel avanzado<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Tablas dinámicas, fórmulas complejas y reportes de indicadores para toma de decisiones.</span></span>
       </div>
     </div>
 
     <div class="sk-row">
       <div class="sk-cat">Web</div>
       <div class="sk-tags">
-        <span class="sk-t">HTML · CSS
-          <span class="sk-tooltip"><span class="tt-level avanzado">Avanzado</span><br>Maquetación y estilos de sitios web, incluyendo diseño responsive y personalización de temas.</span>
-        </span>
-        <span class="sk-t">jQuery
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Interactividad del lado del cliente en proyectos WordPress y páginas web.</span>
-        </span>
-        <span class="sk-t">SEO
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Optimización de rendimiento y posicionamiento en buscadores en proyectos WordPress freelance.</span>
-        </span>
-        <span class="sk-t">APIs REST
-          <span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Integración de servicios externos y consumo de APIs en aplicaciones web y scripts Python.</span>
-        </span>
+        <span class="sk-t">HTML · CSS<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Maquetación y estilos de sitios web, incluyendo diseño responsive y personalización de temas.</span></span>
+        <span class="sk-t">jQuery<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Interactividad del lado del cliente en proyectos WordPress y páginas web.</span></span>
+        <span class="sk-t">SEO<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Optimización de rendimiento y posicionamiento en buscadores en proyectos WordPress freelance.</span></span>
+        <span class="sk-t">APIs REST<span class="sk-tooltip"><span class="tt-level intermedio">Intermedio</span><br>Integración de servicios externos y consumo de APIs en aplicaciones web y scripts Python.</span></span>
       </div>
     </div>
   </section>
@@ -313,7 +207,6 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
   <!-- EXPERIENCE -->
   <section class="sec rev" id="exp">
     <div class="sec-bar"><span class="sec-label">Experiencia laboral</span><span class="sec-n">02</span></div>
-
     <div class="exp-item">
       <div><p class="ep">Ene 2026 — Actualidad</p><p class="eco">Secretaría Distrital<br>de Hacienda</p><span class="etype">Tiempo completo</span></div>
       <div>
@@ -322,7 +215,6 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
         <ul class="el"><li>Digitalización de formatos institucionales con trazabilidad mejorada</li><li>Automatizaciones Python para reducir tiempos documentales</li><li>Gestión de información en SAP CRM y SharePoint</li></ul>
       </div>
     </div>
-
     <div class="exp-item">
       <div><p class="ep">Jul 2025 — Ene 2026</p><p class="eco">Secretaría Distrital<br>de Hacienda</p><span class="etype">Internado</span></div>
       <div>
@@ -332,7 +224,6 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
         <div class="kpi"><strong>80%</strong><span>reducción en tiempos operativos con automatización</span></div>
       </div>
     </div>
-
     <div class="exp-item">
       <div><p class="ep">Ago 2024 — Feb 2025</p><p class="eco">Freelancer</p><span class="etype">Independiente</span></div>
       <div>
@@ -347,10 +238,41 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
   <section class="sec rev" id="proj">
     <div class="sec-bar"><span class="sec-label">Proyectos destacados</span><span class="sec-n">03</span></div>
     <div class="pg">
-      <div class="pc"><div class="pn">01</div><p class="pt">Automatización OCR</p><p class="pd">Sistema de extracción y clasificación automática de datos desde PDFs institucionales. Redujo tiempos en un 80% en la Secretaría de Hacienda.</p><div class="ps"><span>Python</span><span>Tesseract</span><span>PyMuPDF</span><span>Pandas</span></div></div>
-      <div class="pc"><div class="pn">02</div><p class="pt">Dashboard de Indicadores</p><p class="pd">Automatización de reportes periódicos para el equipo de Capacitación. Consolidación de múltiples fuentes en un solo flujo.</p><div class="ps"><span>Python</span><span>Excel</span><span>SAP CRM</span></div></div>
-      <div class="pc"><div class="pn">03</div><p class="pt">Sitios Web a Medida</p><p class="pd">Desarrollo en WordPress con temas y plugins personalizados, optimización SEO y gestión de bases de datos MySQL.</p><div class="ps"><span>WordPress</span><span>PHP</span><span>MySQL</span><span>CSS</span></div></div>
-      <div class="pc"><div class="pn">04</div><p class="pt">Formularios Digitales</p><p class="pd">Diseño e implementación de formularios de captura para Talento Humano, mejorando calidad y trazabilidad del dato.</p><div class="ps"><span>SharePoint</span><span>Python</span></div></div>
+      <div class="pc">
+        <div class="pn">01</div>
+        <p class="pt">Automatización OCR</p>
+        <p class="pd">Sistema de extracción y clasificación automática de datos desde PDFs institucionales. Redujo tiempos en un 80% en la Secretaría de Hacienda.</p>
+        <div class="ps"><span>Python</span><span>Tesseract</span><span>PyMuPDF</span><span>Pandas</span></div>
+        <a class="pc-link" href="https://github.com/BohorquezSebastian" target="_blank">Ver en GitHub <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="pc">
+        <div class="pn">02</div>
+        <p class="pt">Dashboard de Indicadores</p>
+        <p class="pd">Automatización de reportes periódicos para el equipo de Capacitación. Consolidación de múltiples fuentes en un solo flujo.</p>
+        <div class="ps"><span>Python</span><span>Excel</span><span>SAP CRM</span></div>
+        <a class="pc-link" href="https://github.com/BohorquezSebastian" target="_blank">Ver en GitHub <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="pc">
+        <div class="pn">03</div>
+        <p class="pt">Sitios Web a Medida</p>
+        <p class="pd">Desarrollo en WordPress con temas y plugins personalizados, optimización SEO y gestión de bases de datos MySQL.</p>
+        <div class="ps"><span>WordPress</span><span>PHP</span><span>MySQL</span><span>CSS</span></div>
+        <a class="pc-link" href="https://github.com/BohorquezSebastian" target="_blank">Ver en GitHub <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="pc">
+        <div class="pn">04</div>
+        <p class="pt">Formularios Digitales</p>
+        <p class="pd">Diseño e implementación de formularios de captura para Talento Humano, mejorando calidad y trazabilidad del dato.</p>
+        <div class="ps"><span>SharePoint</span><span>Python</span></div>
+        <a class="pc-link" href="https://github.com/BohorquezSebastian" target="_blank">Ver en GitHub <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+    </div>
+    <div class="proj-more">
+      <span class="proj-more-txt">¿Quieres ver más proyectos y código?</span>
+      <a class="proj-more-link" href="https://github.com/BohorquezSebastian?tab=repositories" target="_blank">
+        Ver todos los repositorios
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </section>
 
@@ -358,12 +280,10 @@ footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify
   <section class="sec rev" id="contact">
     <div class="sec-bar"><span class="sec-label">Hablemos</span><span class="sec-n">04</span></div>
     <p class="ct-big">¿Tienes un<br>proyecto en <em>mente?</em></p>
-
     <a class="ct-download" href="HV_JUAN_BOHORQUEZ.pdf" download>
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Descargar hoja de vida
     </a>
-
     <div class="ct-grid">
       <div class="ci"><p class="ci-l">Email</p><a class="ci-v" href="mailto:jsbohorquez@icloud.com">jsbohorquez<br>@icloud.com</a></div>
       <div class="ci"><p class="ci-l">Teléfono</p><span class="ci-v">304 593 3820</span></div>
@@ -388,9 +308,7 @@ document.querySelectorAll('a,button,.pc,.exp-item,.sk-t').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='54px';curR.style.height='54px'});
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='36px';curR.style.height='36px'});
 });
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.08});
 document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
 </script>
